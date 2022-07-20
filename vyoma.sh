@@ -10,3 +10,5 @@ clear
 echo "****** UpTickPro (Evaluation Version) 1.0.0 *******"
 echo "Copyright (c) 2022, Vyoma Systems Private Limited"
 echo "All Rights Reserved."
+
+rm -rf core.*
