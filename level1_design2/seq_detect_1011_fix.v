@@ -1,6 +1,6 @@
 // See LICENSE.vyoma for more details
 // Verilog module for Sequence detection: 1011
-module seq_detect_1011(seq_seen, inp_bit, reset, clk);
+module seq_detect_1011_fix(seq_seen, inp_bit, reset, clk);
 
   output seq_seen;
   input inp_bit;
@@ -48,7 +48,7 @@ module seq_detect_1011(seq_seen, inp_bit, reset, clk);
         if(inp_bit == 1)
           next_state = SEQ_1;
         else
-          next_state = IDLE;
+          next_state = SEQ_10;
       end
       SEQ_10:
       begin
@@ -62,7 +62,7 @@ module seq_detect_1011(seq_seen, inp_bit, reset, clk);
         if(inp_bit == 1)
           next_state = SEQ_1011;
         else
-          next_state = IDLE;
+          next_state = SEQ_10;
       end
       SEQ_1011:
       begin
