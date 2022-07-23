@@ -25,18 +25,21 @@ async def test_seq_bug1(dut):
 
     cocotb.log.info('#### CTB: Develop your test here! ######')
 
-    dut.inp_bit.value = 1
+    test_seq = [1,1,0,1,1]
+    dut.inp_bit.value = test_seq[0]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = test_seq[1]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 0
+    dut.inp_bit.value = test_seq[2]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = test_seq[3]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = test_seq[4]
     await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0               # driving the inp_bit to 0 to allow another test case to execute, since this value is propagating to the next test and changing the current_state value
+    await Timer(1, units='ns')
 
-    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = 11011. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
+    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = {test_seq}. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
 
 @cocotb.test()
 async def test_seq_bug2(dut):
@@ -45,27 +48,27 @@ async def test_seq_bug2(dut):
     cocotb.start_soon(clock.start())        # Start the clock
 
     # reset
-    dut._log.info(f'Input bit: {dut.inp_bit.value}')
     dut.reset.value = 1
     await FallingEdge(dut.clk)
     dut.reset.value = 0
     await FallingEdge(dut.clk)
-    dut._log.info(f'Input bit: {dut.inp_bit.value}')
 
     cocotb.log.info('#### CTB: Develop your test here! ######')
 
-    dut.inp_bit.value = 1
+    test_seq = [1,0,1,0,1,1]
+    dut.inp_bit.value = test_seq[0]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 0
+    dut.inp_bit.value = test_seq[1]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = test_seq[2]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 0
+    dut.inp_bit.value = test_seq[3]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = test_seq[4]
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = test_seq[5]
     await FallingEdge(dut.clk)
+    dut.inp_bit.value = 0             # driving the inp_bit to 0 to allow another test case to execute, since this value is propagating to the next test and changing the current_state value
+    await Timer(1, units='ns')
 
-    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = 101011. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
-
+    assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected. Given sequence = {test_seq}. Model Output: {dut.seq_seen.value} Expected Ouput: 1'
