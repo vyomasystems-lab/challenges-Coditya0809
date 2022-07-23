@@ -2,8 +2,8 @@
 
 The verification environment was setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
+![Setup Screenshot](https://user-images.githubusercontent.com/42858487/180610056-7653748e-780f-4cc5-a047-831af2bb8d2c.PNG)
 
-![](https://imgur.com/a/8xa4HqX.png)
 
 ## Verification Environment
 
@@ -61,7 +61,8 @@ assert dut.out.value == dut.inp30.value, f"Mux output is incorrect: Expected Out
 
 ## Failed Test Cases
 
-![](https://imgur.com/a/93ucH11.png)
+![failed test cases](https://user-images.githubusercontent.com/42858487/180610075-ddd33198-51c5-4dda-923b-783f4550d27d.PNG)
+
 
 Output mismatches for the above inputs proving that there is a design bug
 
@@ -84,7 +85,7 @@ For the mux design, the logic for case 5'b01101 is repeated twice. Therefore, on
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
-![](https://imgur.com/a/cq2DueF.png)
+![same test cases after bug fix](https://user-images.githubusercontent.com/42858487/180610098-f7629667-2dbf-432b-8900-d95bab03f230.PNG)
 
 The updated design is checked in as mux_fix.v
 
