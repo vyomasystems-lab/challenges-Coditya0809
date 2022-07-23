@@ -2,8 +2,7 @@
 
 The verification environment was setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
-
-![](https://imgur.com/a/8xa4HqX.png)
+![Setup Screenshot](https://user-images.githubusercontent.com/42858487/180610171-078c23ad-e0ba-476a-814d-15ee0c7eec8e.PNG)
 
 ## Verification Environment
 
@@ -76,7 +75,7 @@ assert dut.seq_seen.value == 1, f'Sequence must be detected but is not detected.
 
 ## Failed Test Cases
 
-![](https://imgur.com/a/Moiofox.png)
+![failed test cases](https://user-images.githubusercontent.com/42858487/180610192-c6b1e390-d313-4b1a-82b9-928ffd23921e.PNG)
 
 Output mismatches for the above input sequence proving that there is a design bug
 
@@ -128,7 +127,8 @@ The design was fixed by simply, reatining the state ``SEQ_1`` when inp_bit ``1``
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
-![](https://imgur.com/a/GbMQa1o.png)
+![same test cases after design fix](https://user-images.githubusercontent.com/42858487/180610214-357d2b4d-456c-4556-a2d6-9ebb9a091fc2.PNG)
+
 
 The updated design is checked in as seq_detect_1011_fix.v
 
