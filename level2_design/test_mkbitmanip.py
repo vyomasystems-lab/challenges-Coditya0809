@@ -54,6 +54,8 @@ def run_test(dut):
         imm_value_seq = ["1","0"]
         imm_value_1_seq = [bin(0)[2:].zfill(5),bin(1)[2:].zfill(5),bin(2)[2:].zfill(5),bin(4)[2:].zfill(5),bin(5)[2:].zfill(5),bin(16)[2:].zfill(5),bin(17)[2:].zfill(5),bin(18)[2:].zfill(5),bin(24)[2:].zfill(5),bin(25)[2:].zfill(5),bin(26)[2:].zfill(5)]
 
+        le = func7_seq[-3]+"1111111111"+func3_seq[4]+"11111"+opcode_seq[0]
+
         length = 32
         # le = bin(0)[2:].zfill(length)
         # le = bin(random.randint(0,2**32-1))[2:].zfill(32)
@@ -68,8 +70,6 @@ def run_test(dut):
         imm_value = le[length-25:length-20]
         imm_value_1 = le[length-25:length-20]
         fsr_imm_value = le[length-26:length-20]
-
-        le = func7_seq[-3]+"0000000000"+func3_seq[4]+"11111"+opcode_seq[0]
 
         dut._log.info(f'{le}')
 
