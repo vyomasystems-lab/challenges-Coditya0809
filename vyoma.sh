@@ -10,6 +10,7 @@ pip install pytest
 export PYTHONPATH=/workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/pygpi:$PYTHONPATH
 cp -r /workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/cocotb*  /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/
 cp -r /workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/pygpi /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/
+cp -r /workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/pytest* /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/
 rm -rf core.*
 clear
 echo "****** UpTickPro (Evaluation Version) 1.0.0 *******"
