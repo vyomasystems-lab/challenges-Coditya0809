@@ -57,17 +57,17 @@ def run_test(dut):
         length = 32
         # le = bin(0)[2:].zfill(length)
         # le = bin(random.randint(0,2**32-1))[2:].zfill(32)
-        # opcode = le[-7::]
-        # func3 = le[length-15:length-12]
-        # func7 = le[length-32:length-25]
-        # func7_imm = le[length-32:length-27]
-        # func7_2bit = le[length-27:length-25]
-        # func7_1bit = le[length-28:length-27]
-        # func7_fsri_1bit = le[length-27:length-26]
-        # func7_imm_SHFL = le[length-32:length-26]
-        # imm_value = le[length-25:length-20]
-        # imm_value_1 = le[length-25:length-20]
-        # fsr_imm_value = le[length-26:length-20]
+        opcode = le[-7::]
+        func3 = le[length-15:length-12]
+        func7 = le[length-32:length-25]
+        func7_imm = le[length-32:length-27]
+        func7_2bit = le[length-27:length-25]
+        func7_1bit = le[length-28:length-27]
+        func7_fsri_1bit = le[length-27:length-26]
+        func7_imm_SHFL = le[length-32:length-26]
+        imm_value = le[length-25:length-20]
+        imm_value_1 = le[length-25:length-20]
+        fsr_imm_value = le[length-26:length-20]
 
         le = func7_seq[-3]+"0000000000"+func3_seq[4]+"11111"+opcode_seq[0]
 
