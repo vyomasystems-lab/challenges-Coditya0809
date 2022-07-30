@@ -32,10 +32,9 @@ async def test_mux_last_input(dut):
 
     # input driving
 
-    for i in range (30):
+    for i in range (31):
         dut._id("inp"+str(i), extended=False).value = random.randint(0,3)
         
-    dut.inp30.value = 1
     dut.sel.value = 30
 
     await Timer(2, units='ns')
