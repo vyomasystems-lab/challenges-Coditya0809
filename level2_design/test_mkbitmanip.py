@@ -34,6 +34,14 @@ def run_test(dut):
  
     ######### CTB : Modify the test to expose the bug #############
  
+    opcode_seq = [bin(51)[2:].zfill(7),bin(19)[2:].zfill(7)]
+    func7_seq = [bin(32)[2:].zfill(7),bin(16)[2:].zfill(7),bin(48)[2:].zfill(7),bin(36)[2:].zfill(7),bin(20)[2:].zfill(7),bin(52)[2:].zfill(7),bin(5)[2:].zfill(7),bin(4)[2:].zfill(7)]
+    func3_r_seq = [bin(1)[2:].zfill(3),bin(2)[2:].zfill(3),bin(3)[2:].zfill(3),bin(4)[2:].zfill(3),bin(5)[2:].zfill(3),bin(6)[2:].zfill(3),bin(7)[2:].zfill(3)]
+    func3_imm_seq = ["001","101"]
+    func7_imm_seq = [bin(4)[2:].zfill(5),bin(12)[2:].zfill(5),bin(9)[2:].zfill(5),bin(5)[2:].zfill(5),bin(13)[2:].zfill(5)]
+    func7_2bit_seq = ["11","10","00"]
+    #imm_value_1_seq = [bin(0)[2:].zfill(5),bin(1)[2:].zfill(5),bin(2)[2:].zfill(5),bin(4)[2:].zfill(5),bin(5)[2:].zfill(5),bin(16)[2:].zfill(5),bin(17)[2:].zfill(5),bin(18)[2:].zfill(5),bin(24)[2:].zfill(5),bin(25)[2:].zfill(5),bin(26)[2:].zfill(5)]
+
     err_count = 0
     for i in range (1000):
         # input transaction
@@ -44,14 +52,6 @@ def run_test(dut):
         # intelligently choosing a random instruction
         mav_putvalue_instr = random.getrandbits(32)
         le = bin(mav_putvalue_instr)[2:].zfill(32)
- 
-        opcode_seq = [bin(51)[2:].zfill(7),bin(19)[2:].zfill(7)]
-        func7_seq = [bin(32)[2:].zfill(7),bin(16)[2:].zfill(7),bin(48)[2:].zfill(7),bin(36)[2:].zfill(7),bin(20)[2:].zfill(7),bin(52)[2:].zfill(7),bin(5)[2:].zfill(7),bin(4)[2:].zfill(7)]
-        func3_r_seq = [bin(1)[2:].zfill(3),bin(2)[2:].zfill(3),bin(3)[2:].zfill(3),bin(4)[2:].zfill(3),bin(5)[2:].zfill(3),bin(6)[2:].zfill(3),bin(7)[2:].zfill(3)]
-        func3_imm_seq = ["001","101"]
-        func7_imm_seq = [bin(4)[2:].zfill(5),bin(12)[2:].zfill(5),bin(9)[2:].zfill(5),bin(5)[2:].zfill(5),bin(13)[2:].zfill(5)]
-        func7_2bit_seq = ["11","10","00"]
-        #imm_value_1_seq = [bin(0)[2:].zfill(5),bin(1)[2:].zfill(5),bin(2)[2:].zfill(5),bin(4)[2:].zfill(5),bin(5)[2:].zfill(5),bin(16)[2:].zfill(5),bin(17)[2:].zfill(5),bin(18)[2:].zfill(5),bin(24)[2:].zfill(5),bin(25)[2:].zfill(5),bin(26)[2:].zfill(5)]
  
         # choosing the random sequences
         opcode = random.choices(opcode_seq,cum_weights = [35, 58],k=1)[0]

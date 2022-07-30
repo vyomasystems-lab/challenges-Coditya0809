@@ -4,10 +4,10 @@ TOPLEVEL_LANG ?= verilog
 
 PWD=$(shell pwd)
 
-VERILOG_SOURCES = $(PWD)/               # provide your design path
+VERILOG_SOURCES = $(PWD)/mips_16_core_top.v               # provide your design path
 
-TOPLEVEL :=           # design file
-MODULE   :=     # test file
+TOPLEVEL := mips_16_core_top          # design file
+MODULE   := test_mips_16    # test file
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
