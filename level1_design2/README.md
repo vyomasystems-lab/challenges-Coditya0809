@@ -61,7 +61,7 @@ The values were assigned to the input port using
 
 ```
 
-The assert statement was used for comparing the mux's output to the expected value.
+The assert statement was used for comparing the sequence detector's output to the expected value.
 
 The following assert statement was used:
 ```
