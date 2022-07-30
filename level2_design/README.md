@@ -91,9 +91,11 @@ I kept a count of all the instructions (repititions also counted as errors) that
 
 ## Failed Test Cases
 
-![failed test cases](https://user-images.githubusercontent.com/42858487/180610192-c6b1e390-d313-4b1a-82b9-928ffd23921e.PNG)
+![failed test cases interesting](https://user-images.githubusercontent.com/42858487/181979260-7659296d-0506-4091-b680-afa891491f33.PNG)
 
 Output mismatches for the instruction ANDN proving that there is a design bug.
+
+![failed test cases](https://user-images.githubusercontent.com/42858487/181979663-3d82847a-8d90-4103-974d-88a12ab3a007.PNG)
 
 ## Design Bug
 Based on the above test inputs and analysing the design, I could see the following:
@@ -145,11 +147,13 @@ Updating the design and re-running the test made the test pass.
 
 1. Screenshot of ANDN Instruciton giving correct output
 
-![same test cases after design fix](https://user-images.githubusercontent.com/42858487/180610214-357d2b4d-456c-4556-a2d6-9ebb9a091fc2.PNG)
+![passed test case ANDN proof](https://user-images.githubusercontent.com/42858487/181981590-3015741a-1dab-4637-9e82-38ca9e7e0576.PNG)
+
 
 2. Screenshot of PASS status of the test
 
-![same test cases after design fix](https://user-images.githubusercontent.com/42858487/180610214-357d2b4d-456c-4556-a2d6-9ebb9a091fc2.PNG)
+![passed test case ANDN proof2](https://user-images.githubusercontent.com/42858487/181981987-bf5609d7-643b-4c57-b321-e6904d5e83c6.PNG)
+
 
 The updated design is checked in as ../level2_design_fix/mkbitmanip_fix.v
 
@@ -172,6 +176,8 @@ cocotb.log.info(f'ANDN = {hex(result_andn)} \t AND = {hex(result_and)}')
 
 ```
 The result: 
+
+![ANDN is AND confirmation](https://user-images.githubusercontent.com/42858487/181982395-ecdd1949-ec09-4447-b7a2-c97001b08a6f.PNG)
 
 
 4. Then, there was a lot of random searching of signals thorugh the code. At one point I started at some assignment to a wire and ended up in a completely random assignment of another wire. I cried, I struggled, I was helpless at this point in time. I truly felt worthless.
