@@ -23,8 +23,12 @@ async def test_mips_16(dut):
     dut.rst.value = 0
     await FallingEdge(dut.clk)
 
-    await Timer(1000, units='us')
-
     cocotb.log.info('#### CTB: Develop your test here! ######')
 
-    dut._log.info(f'The Output of EX_stage after 100 ms is: {int(dut.EX_stage_inst.pipeline_reg_out)}')
+    for i in range (100):
+        dut._log.info(f'PC: {dut.pc.value} \t INSTRUCTION: {dut.instruction.value}')
+        dut._log.info(f'The Output of EX_stage after cycle {i+1} is: {dut.EX_pipeline_reg_out.value.binstr}')
+        await FallingEdge(dut.clk)
+
+    error_message = f'The desgin fails as the DUT value does not match the expected (model) value.'
+    # assert some_condition_to_check, f'error_message'
