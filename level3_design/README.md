@@ -1,4 +1,4 @@
-# Level-2 Design Verification
+# Level-3 Design Verification
 
 The verification environment was setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
